@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "neft", "neft\neft.csproj", "{B971E0DB-7684-4BC5-B0B0-F07FA058D88D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B971E0DB-7684-4BC5-B0B0-F07FA058D88D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B971E0DB-7684-4BC5-B0B0-F07FA058D88D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B971E0DB-7684-4BC5-B0B0-F07FA058D88D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B971E0DB-7684-4BC5-B0B0-F07FA058D88D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {67D32F98-A68C-414A-99D4-F6F456B3444F}
+	EndGlobalSection
+EndGlobal
