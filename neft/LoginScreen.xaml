@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:neft" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Вход"  Height="450" Width="600" FontSize="14" Background="White" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Icon="Images\icon.png" Title="Вход"  Height="450" Width="600" FontSize="14" Background="White" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     
     <Grid>
         <Grid.Background>

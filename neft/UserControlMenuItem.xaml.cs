@@ -30,22 +30,34 @@ namespace neft
 
             ExpanderMenu.Visibility = itemMenu.SubItems == null ? Visibility.Collapsed : Visibility.Visible;
             ListViewItemMenu.Visibility = itemMenu.SubItems == null ? Visibility.Visible : Visibility.Collapsed;
-
+            
             this.DataContext = itemMenu;
             
         }
 
+      
+
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             
+        
             try
             {
+                
                 _context.SwitchScreen(((SubItem)((ListView)sender).SelectedItem).Screen);
                 _context.zagol.Text = ((SubItem)((ListView)sender).SelectedItem).Name;
+                ListViewMenu.UnselectAll();
+                
+                
+                
+                
+               
+       
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(""+ex);
+                
             }
         }
 
@@ -55,6 +67,11 @@ namespace neft
             _context.zagol.Text = (string)ListViewItemMenu.Content;
             _context.StackPanelMain.Children.Add(new MonitoringView());
             ListViewItemMenu.IsSelected = false;
+        }
+
+        private void ExpanderMenu_Expanded(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

@@ -41,8 +41,9 @@ namespace neft
                 sqlCmd.CommandType = System.Data.CommandType.Text;
                 sqlCmd.Parameters.AddWithValue("@email", txtUsername.Text);
                 sqlCmd.Parameters.AddWithValue("@password", txtPassword.Password);
-                int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
-                if (count == 1)
+                int coun = Convert.ToInt32(sqlCmd.ExecuteScalar());
+            
+                if (coun == 1)
                 {
                     
                     String queryfam = "SELECT fam FROM users WHERE email=@email";
@@ -54,7 +55,6 @@ namespace neft
 
                     SqlCommand sqlCmdfam = new SqlCommand(queryfam, sqlCon);
                     SqlCommand sqlCmdname = new SqlCommand(queryname, sqlCon);
-                   
                     SqlCommand sqlCmdemail = new SqlCommand(queryemail, sqlCon);
                     
 
@@ -67,9 +67,7 @@ namespace neft
                 
                     sqlCmdemail.CommandType = System.Data.CommandType.Text;
                     sqlCmdemail.Parameters.AddWithValue("@email", txtUsername.Text);
-                    
-
-
+ 
                     MainWindow dashboard = new MainWindow();
                     string fam = Convert.ToString(sqlCmdfam.ExecuteScalar());
                     string name = Convert.ToString(sqlCmdname.ExecuteScalar());
@@ -86,7 +84,6 @@ namespace neft
                 }
                 else
                 {
-
                     MessageBox.Show("Неверный логин или пароль", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Warning);
                     txtUsername.Clear();
                     txtPassword.Clear();
@@ -98,7 +95,7 @@ namespace neft
             }
             finally
             {
-                sqlCon.Close();
+                
             }
         }
 

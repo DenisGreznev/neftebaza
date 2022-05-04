@@ -44,6 +44,7 @@ namespace neft
                 sqlCon.Close();
                 datagrid.ItemsSource = dt.DefaultView;
                 
+
             }
             catch (SqlException ex)
             {
@@ -172,7 +173,14 @@ namespace neft
                         textboxstoim.Clear();
                         textboxcena.Clear();
                         textboxkol.Clear();
-                       
+                        datagrid.Columns[0].Header = "id склада";
+                        datagrid.Columns[1].Header = "id товара";
+                        datagrid.Columns[2].Header = "Название склада";
+                        datagrid.Columns[3].Header = "Товар";
+                        datagrid.Columns[4].Header = "Цена (1 ед)";
+                        datagrid.Columns[5].Header = "Количество";
+                        datagrid.Columns[6].Header = "Общая стоимость";
+
                     }
                 }
             }
@@ -229,6 +237,13 @@ namespace neft
                     textboxstoim.Clear();
                     textboxcena.Clear();
                     textboxkol.Clear();
+                    datagrid.Columns[0].Header = "id склада";
+                    datagrid.Columns[1].Header = "id товара";
+                    datagrid.Columns[2].Header = "Название склада";
+                    datagrid.Columns[3].Header = "Товар";
+                    datagrid.Columns[4].Header = "Цена (1 ед)";
+                    datagrid.Columns[5].Header = "Количество";
+                    datagrid.Columns[6].Header = "Общая стоимость";
 
 
                 }
@@ -244,7 +259,15 @@ namespace neft
         private void buttonobn_Click(object sender, RoutedEventArgs e)
         {
             LoadGrid();
-            
+            datagrid.Columns[0].Header = "id склада";
+            datagrid.Columns[1].Header = "id товара";
+            datagrid.Columns[2].Header = "Название склада";
+            datagrid.Columns[3].Header = "Товар";
+            datagrid.Columns[4].Header = "Цена (1 ед)";
+            datagrid.Columns[5].Header = "Количество";
+            datagrid.Columns[6].Header = "Общая стоимость";
+            spisokskladov.SelectedIndex = 0;
+
         }
 
         private void buttonsbr_Click(object sender, RoutedEventArgs e)
@@ -255,6 +278,14 @@ namespace neft
             textboxcena.Clear();
             textboxkol.Clear();
             datagrid.SelectedIndex = -1;
+            datagrid.Columns[0].Header = "id склада";
+            datagrid.Columns[1].Header = "id товара";
+            datagrid.Columns[2].Header = "Название склада";
+            datagrid.Columns[3].Header = "Товар";
+            datagrid.Columns[4].Header = "Цена (1 ед)";
+            datagrid.Columns[5].Header = "Количество";
+            datagrid.Columns[6].Header = "Общая стоимость";
+            spisokskladov.SelectedIndex = 0;
         }
 
         private void btndel_Click(object sender, RoutedEventArgs e)
@@ -277,6 +308,13 @@ namespace neft
                     textboxstoim.Clear();
                     textboxcena.Clear();
                     textboxkol.Clear();
+                    datagrid.Columns[0].Header = "id склада";
+                    datagrid.Columns[1].Header = "id товара";
+                    datagrid.Columns[2].Header = "Название склада";
+                    datagrid.Columns[3].Header = "Товар";
+                    datagrid.Columns[4].Header = "Цена (1 ед)";
+                    datagrid.Columns[5].Header = "Количество";
+                    datagrid.Columns[6].Header = "Общая стоимость";
 
 
                 }
@@ -291,34 +329,30 @@ namespace neft
 
         private void btndeltab_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Вы действительно хотите очистить таблицу?", "Подтверждение действия", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-            {
-                try
-                {
-                    {                    
-                        sqlCon.Open();
-                        SqlCommand cmd = new SqlCommand("TRUNCATE TABLE sklad;", sqlCon);
-                        cmd.ExecuteNonQuery();
-                        sqlCon.Close();
-                        LoadGrid();
-                        comboboxsklad.Text = "";
-                        comboboxtovar.Text = "";
-                        textboxstoim.Clear();
-                        textboxcena.Clear();
-                        textboxkol.Clear();
+            DeleteTableView dashboard = new DeleteTableView();
+            dashboard.Show();
+            datagrid.Columns[0].Header = "id склада";
+            datagrid.Columns[1].Header = "id товара";
+            datagrid.Columns[2].Header = "Название склада";
+            datagrid.Columns[3].Header = "Товар";
+            datagrid.Columns[4].Header = "Цена (1 ед)";
+            datagrid.Columns[5].Header = "Количество";
+            datagrid.Columns[6].Header = "Общая стоимость";
+            spisokskladov.SelectedIndex = 0;
 
-                    }
-                }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
+
         }
 
         private void allspisok_Selected(object sender, RoutedEventArgs e)
         {
             LoadGrid();
+            datagrid.Columns[0].Header = "id склада";
+            datagrid.Columns[1].Header = "id товара";
+            datagrid.Columns[2].Header = "Название склада";
+            datagrid.Columns[3].Header = "Товар";
+            datagrid.Columns[4].Header = "Цена (1 ед)";
+            datagrid.Columns[5].Header = "Количество";
+            datagrid.Columns[6].Header = "Общая стоимость";
         }
 
         private void spisok1_Selected(object sender, RoutedEventArgs e)
@@ -332,6 +366,15 @@ namespace neft
             dt.Load(srd);
             sqlCon.Close();
             datagrid.ItemsSource = dt.DefaultView;
+            
+            datagrid.Columns[0].Header = "id склада";
+            datagrid.Columns[1].Header = "id товара";
+            datagrid.Columns[2].Header = "Название склада";
+            datagrid.Columns[3].Header = "Товар";
+            datagrid.Columns[4].Header = "Цена (1 ед)";
+            datagrid.Columns[5].Header = "Количество";
+            datagrid.Columns[6].Header = "Общая стоимость";
+            spisokskladov.SelectedIndex = 0;
         }
 
         private void spisok2_Selected(object sender, RoutedEventArgs e)
@@ -345,6 +388,79 @@ namespace neft
             dt.Load(srd);
             sqlCon.Close();
             datagrid.ItemsSource = dt.DefaultView;
+            datagrid.Columns[0].Header = "id склада";
+            datagrid.Columns[1].Header = "id товара";
+            datagrid.Columns[2].Header = "Название склада";
+            datagrid.Columns[3].Header = "Товар";
+            datagrid.Columns[4].Header = "Цена (1 ед)";
+            datagrid.Columns[5].Header = "Количество";
+            datagrid.Columns[6].Header = "Общая стоимость";
+            spisokskladov.SelectedIndex = 0;
+        }
+
+        private void buttonpoisk_Click(object sender, RoutedEventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand("SELECT id_sklad, tovar.id_tovar, sklad.namesk, tovar.name, tovar.cena, sklad.koltovar, sklad.obstoim FROM sklad, tovar WHERE tovar.id_tovar=sklad.id_tovar and tovar.name=@name", sqlCon);
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.Parameters.AddWithValue("@name", comboboxtovarpoisk.Text);
+            DataTable dt = new DataTable();
+            sqlCon.Open();
+            SqlDataReader srd = cmd.ExecuteReader();
+            dt.Load(srd);
+            sqlCon.Close();
+            datagrid.ItemsSource = dt.DefaultView;
+            datagrid.Columns[0].Header = "id склада";
+            datagrid.Columns[1].Header = "id товара";
+            datagrid.Columns[2].Header = "Название склада";
+            datagrid.Columns[3].Header = "Товар";
+            datagrid.Columns[4].Header = "Цена (1 ед)";
+            datagrid.Columns[5].Header = "Количество";
+            datagrid.Columns[6].Header = "Общая стоимость";
+            spisokskladov.SelectedIndex = 0;
+        }
+
+        private void buttonsbros_Click(object sender, RoutedEventArgs e)
+        {
+            LoadGrid();
+            comboboxtovarpoisk.SelectedIndex = -1;
+            datagrid.Columns[0].Header = "id склада";
+            datagrid.Columns[1].Header = "id товара";
+            datagrid.Columns[2].Header = "Название склада";
+            datagrid.Columns[3].Header = "Товар";
+            datagrid.Columns[4].Header = "Цена (1 ед)";
+            datagrid.Columns[5].Header = "Количество";
+            datagrid.Columns[6].Header = "Общая стоимость";
+            spisokskladov.SelectedIndex = 0;
+        }
+
+        private void textboxkol_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (textboxkol.Text =="" || textboxcena.Text == "")
+            {
+                textboxstoim.Text = "";
+            } else
+            {
+                int cena = Convert.ToInt32(textboxcena.Text.ToString());
+                int kol = Convert.ToInt32(textboxkol.Text.ToString());
+                textboxstoim.Text = Convert.ToString(cena * kol);
+            }
+            
+
+        }
+
+        private void textboxkol_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0)) e.Handled = true;
+        }
+
+        private void textboxstoim_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            
+        }
+
+        private void textboxcena_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0)) e.Handled = true;
         }
     }
 }

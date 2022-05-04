@@ -28,35 +28,30 @@ namespace neft
         {
             InitializeComponent();
 
-            var menuRegister = new List<SubItem>();
-            menuRegister.Add(new SubItem("Движение товара"));
-            menuRegister.Add(new SubItem("Список клиентов"));
-            var item6 = new ItemMenu("Доставка", menuRegister, PackIconKind.Register);
-
             var menuSchedule = new List<SubItem>();
             menuSchedule.Add(new SubItem("Товары на складе", new tovarsinsklad()));
-            menuSchedule.Add(new SubItem("Список складов"));
+            menuSchedule.Add(new SubItem("Отчет по складам", new spisokskladov()));
             var item1 = new ItemMenu("Склады", menuSchedule, PackIconKind.Shop);
 
             var menuReports = new List<SubItem>();
-            menuReports.Add(new SubItem("Список товаров"));
-            menuReports.Add(new SubItem("Списанные товары"));
+            menuReports.Add(new SubItem("Список товаров", new spisoktovarov()));
+            menuReports.Add(new SubItem("Списанные товары", new spisanietovar()));
             var item2 = new ItemMenu("Товары", menuReports, PackIconKind.ShoppingBasket);
 
             var menuExpenses = new List<SubItem>();
-            menuExpenses.Add(new SubItem("Список заказов"));
-            menuExpenses.Add(new SubItem("Выполненные заказы"));
+            menuExpenses.Add(new SubItem("Список заказов", new spisokzakaz()));
+            menuExpenses.Add(new SubItem("Список клиентов", new spisokklient()));
             var item3 = new ItemMenu("Заказы", menuExpenses, PackIconKind.FileReport);
 
             var menuFinancial = new List<SubItem>();
-            menuFinancial.Add(new SubItem("Учет продаж", new MonitoringView()));
+            menuFinancial.Add(new SubItem("Учет продаж", new prodagi()));
             var item4 = new ItemMenu("Продажи", menuFinancial, PackIconKind.AccountBalance);
 
             var item0 = new ItemMenu("Мониторинг", new MonitoringView(), PackIconKind.Monitor);
 
 
             var menuSotr = new List<SubItem>();
-            menuSotr.Add(new SubItem("Список сотрудников"));
+            menuSotr.Add(new SubItem("Список сотрудников", new sotrudniki()));
             var item7 = new ItemMenu("Сотрудники", menuSotr, PackIconKind.PeopleCheck);
 
             string nam = item0.Header;
@@ -67,7 +62,6 @@ namespace neft
             Menu.Children.Add(new UserControlMenuItem(item2, this));
             Menu.Children.Add(new UserControlMenuItem(item3, this));
             Menu.Children.Add(new UserControlMenuItem(item4, this));
-            Menu.Children.Add(new UserControlMenuItem(item6, this));
             Menu.Children.Add(new UserControlMenuItem(item7, this));
 
 
@@ -77,29 +71,15 @@ namespace neft
         {
             var screen = ((UserControl)sender);
 
+
             if (screen != null)
             {
+
                 StackPanelMain.Children.Clear();
                 StackPanelMain.Children.Add(screen);
                 
             }
         }
-
-        internal void SwitchText(object sender)
-        {
-            var text = ((TextBlock)sender);
-
-            if (text != null)
-            {
-               
-            }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void akk_Click(object sender, RoutedEventArgs e)
         {
             string name = txtEmail.Text;
@@ -124,10 +104,7 @@ namespace neft
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void Exit_Click_1(object sender, RoutedEventArgs e)
         {
@@ -139,10 +116,10 @@ namespace neft
         {
             
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            StackPanelMain.Children.Add(new MonitoringView());
+            zagol.Text = "Мониторинг";
         }
     }
 }

@@ -3,32 +3,169 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+         
              xmlns:local="clr-namespace:neft"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:MetroChart="clr-namespace:De.TorstenMandelkow.MetroChart;assembly=De.TorstenMandelkow.MetroChart" Height="760" Loaded="UserControl_Loaded" Width="1239" GotFocus="UserControl_GotFocus">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="150"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="204"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        
-        <Border Margin="5" Grid.Column="0" Background="#FFC5C5C5" VerticalAlignment="Stretch" CornerRadius="12">
 
-        </Border>
-        <Border Margin="5" Grid.Column="1" Background="#FF7C54A0" VerticalAlignment="Stretch" CornerRadius="12">
 
-        </Border>
-        <Border Margin="5" Grid.Column="2" Background="#FF83CD80" VerticalAlignment="Stretch" CornerRadius="12">
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Grid Margin="50,0,0,0" Width="310" >
+                <Rectangle Height="120" Margin="22" Fill="White" RadiusY="10" RadiusX="10" >
+                    <Rectangle.Effect>
+                        <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+                <Grid Margin="25" Height="120">
+                    <Grid Width="59" Height="80" Background="#FF41A43C" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,0,0,0">
+                        <Grid.Effect>
+                            <DropShadowEffect BlurRadius="20" Color="#FFECECEC" RenderingBias="Quality" ShadowDepth="1"/>
+                        </Grid.Effect>
+                        <materialDesign:PackIcon Kind="Money" HorizontalAlignment="Center" Foreground="White" Width="40" Height="60" Margin="0,20,0,0"/>
+                    </Grid>
+                    <TextBlock Text="Продано на сумму" HorizontalAlignment="Right" FontFamily="Champagne &amp; Limousines" Margin="5" FontSize="15" VerticalAlignment="Top" Foreground="Gray"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10 30">
+                        <TextBlock x:Name="textmoney" Text="" FontFamily="Champagne &amp; Limousines" VerticalAlignment="Center" Foreground="Gray" FontSize="37"/>
+                        <TextBlock Text=" руб." FontFamily="Champagne &amp; Limousines" Margin="0 10" Foreground="Gray" FontSize="20" VerticalAlignment="Bottom"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
 
-        </Border>
-        <Border Margin="5" Grid.Column="3" Background="#FFEE9246" VerticalAlignment="Stretch" CornerRadius="12">
+            <Grid Margin="50,0,0,0" Width="310" >
+                <Rectangle Height="120" Margin="22" Fill="White" RadiusY="10" RadiusX="10" >
+                    <Rectangle.Effect>
+                        <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+                <Grid Margin="25" Height="120">
+                    <Grid Width="59" Height="80" Background="#FFFFAF24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,0,0,0">
+                        <Grid.Effect>
+                            <DropShadowEffect BlurRadius="20" Color="#FFECECEC" RenderingBias="Quality" ShadowDepth="1"/>
+                        </Grid.Effect>
+                        <materialDesign:PackIcon Kind="People" HorizontalAlignment="Center" Foreground="White" Width="40" Height="60" Margin="0,20,0,0"/>
+                    </Grid>
+                    <TextBlock Text="Клиентов обслужено" HorizontalAlignment="Right" FontFamily="Champagne &amp; Limousines" Margin="5" FontSize="15" VerticalAlignment="Top" Foreground="Gray"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10 30">
+                        <TextBlock x:Name="textklient" Text="" FontFamily="Champagne &amp; Limousines" VerticalAlignment="Center" Foreground="Gray" FontSize="37"/>
+                        <TextBlock Text=" кл." FontFamily="Champagne &amp; Limousines" Margin="0 10" Foreground="Gray" FontSize="20" VerticalAlignment="Bottom"/>
+                    </StackPanel>
+                </Grid>
 
-        </Border>
+            </Grid>
+
+            <Grid Margin="50,0,0,0" Width="310" >
+                <Rectangle Height="120" Margin="22" Fill="White" RadiusY="10" RadiusX="10" >
+                    <Rectangle.Effect>
+                        <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+                <Grid Margin="25" Height="120">
+                    <Grid Width="59" Height="80" Background="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,0,0,0">
+                        <Grid.Effect>
+                            <DropShadowEffect BlurRadius="20" Color="#FFECECEC" RenderingBias="Quality" ShadowDepth="1"/>
+                        </Grid.Effect>
+                        <materialDesign:PackIcon Kind="BasketCheckOutline" HorizontalAlignment="Center" Foreground="White" Width="40" Height="60" Margin="0,20,0,0"/>
+                    </Grid>
+                    <TextBlock Text="Товаров на складе" HorizontalAlignment="Right" FontFamily="Champagne &amp; Limousines" Margin="5" FontSize="15" VerticalAlignment="Top" Foreground="Gray"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10 30">
+                        <TextBlock x:Name="texttovar" Text="" FontFamily="Champagne &amp; Limousines" VerticalAlignment="Center" Foreground="Gray" FontSize="37"/>
+                        <TextBlock Text=" шт." FontFamily="Champagne &amp; Limousines" Margin="0 10" Foreground="Gray" FontSize="20" VerticalAlignment="Bottom"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Grid Margin="50,-150,0,0" Width="449" Height="324" >
+                <Rectangle Margin="22,10,80,0" Fill="White" RadiusY="10" RadiusX="10" Height="205" VerticalAlignment="Top" >
+                    <Rectangle.Effect>
+                        <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+
+                <Grid Width="59" Height="80" Background="Blue" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="286,10,0,0">
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="20" Color="#FFECECEC" RenderingBias="Quality" ShadowDepth="1"/>
+                    </Grid.Effect>
+                    <materialDesign:PackIcon Kind="AvTimer" HorizontalAlignment="Center" Foreground="White" Width="40" Height="60" Margin="0,20,0,0"/>
+                </Grid>
+
+                <StackPanel Margin="43,29,139,265">
+                    <TextBlock Text="План на месяц"  FontFamily="Champagne &amp; Limousines" Foreground="Gray" FontSize="30" Height="54" Width="278"/>
+                </StackPanel>
+
+
+                <StackPanel  Margin="63,118,107,200">
+                    <!-- should disable on 2nd transition... -->
+                    <ProgressBar x:Name="progress"
+                   
+                        Maximum="500000" Height="10" Width="378"/>
+
+                    <!-- should disable on 2nd transition... -->
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="90,141,134,141" >
+                    <TextBlock x:Name="txt1" Text="" FontFamily="Champagne &amp; Limousines" Foreground="Gray" FontSize="25" Height="68" />
+
+                    <TextBlock  Text=" / 500 000" FontFamily="Champagne &amp; Limousines" Foreground="Gray" FontSize="25" Height="49" />
+                </StackPanel>
+            </Grid>
+            <Grid Width="585" Margin="0,-55,0,0" Height="426" >
+                <Rectangle Margin="0,0,95,0" Fill="White" RadiusY="10" RadiusX="10" Height="406" VerticalAlignment="Center" >
+                    <Rectangle.Effect>
+                        <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+
+                <StackPanel Margin="34,34,35,73">
+                    <MetroChart:RadialGaugeChart Background="{x:Null}" ChartTitle="Процент выполненных заказов" ChartSubTitle="" Foreground="LightGray" >
+                        <MetroChart:RadialGaugeChart.Series>
+                            <MetroChart:ChartSeries
+                                        DisplayMember="Titulo"
+                                        ItemsSource="{Binding Path=Consumo}"
+                                        SeriesTitle="Consumo"
+                                        ValueMember="Porcentagem" HorizontalAlignment="Center"/>
+                        </MetroChart:RadialGaugeChart.Series>
+                    </MetroChart:RadialGaugeChart>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="322,150,145,121">
+                    <TextBlock Text="Заказы: " FontFamily="Champagne &amp; Limousines" Foreground="Gray" FontSize="20" Height="31"/>
+                    <TextBlock Text="Подготовка: " FontFamily="Champagne &amp; Limousines" Foreground="Gray" FontSize="20" Height="31"/>
+                    <TextBlock Text="Отправлен: " FontFamily="Champagne &amp; Limousines" Foreground="Gray" FontSize="20" Height="31"/>
+                    <TextBlock Text="Доставлен: " FontFamily="Champagne &amp; Limousines" Foreground="Gray" FontSize="20" Height="31"/>
+                    <TextBlock Text="Завершен: " FontFamily="Champagne &amp; Limousines" Foreground="Gray" FontSize="20" Height="31"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="445,150,112,126">
+                    <TextBlock x:Name="z1" Text="" FontFamily="Champagne &amp; Limousines" Foreground="Gray" FontSize="20" Height="31"/>
+                    <TextBlock x:Name="z2" Text="" FontFamily="Champagne &amp; Limousines" Foreground="Gray" FontSize="20" Height="31"/>
+                    <TextBlock x:Name="z3" Text="" FontFamily="Champagne &amp; Limousines" Foreground="Gray" FontSize="20" Height="31"/>
+                    <TextBlock x:Name="z4" Text="" FontFamily="Champagne &amp; Limousines" Foreground="Gray" FontSize="20" Height="31"/>
+                    <TextBlock x:Name="z5" Text="" FontFamily="Champagne &amp; Limousines" Foreground="Gray" FontSize="20" Height="31"/>
+                </StackPanel>
+
+
+
+
+
+
+            </Grid>
+
+
+        </StackPanel>
+
+
+
     </Grid>
 </UserControl>
